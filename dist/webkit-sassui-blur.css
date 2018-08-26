@@ -1,0 +1,14 @@
+/*webkit-sassui-blur Start*/
+.webkit-sassui-blur.depth-4, .webkit-sassui-blur[data-depth="4"] {
+  -webkit-filter: blur(4px); }
+
+.webkit-sassui-blur.depth-6, .webkit-sassui-blur[data-depth="6"] {
+  -webkit-filter: blur(6px); }
+
+.webkit-sassui-blur.depth-10, .webkit-sassui-blur[data-depth="10"] {
+  -webkit-filter: blur(10px); }
+
+.webkit-sassui-blur.depth-20, .webkit-sassui-blur[data-depth="20"] {
+  -webkit-filter: blur(20px); }
+
+/*webkit-sassui-blur End*/

@@ -1,0 +1,20 @@
+/*webkit-sassui-blur Start*/
+$webkit-sassui-blur-options:(
+  list:(4px,6px,10px,20px)
+)!default;
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+.webkit-sassui-blur{
+  $list: map-get($map: $webkit-sassui-blur-options, $key: list );
+  @each $value in $list {
+    $val: strip-units($value);
+    &.depth-#{$val},
+    &[data-depth="#{$val}"]{
+      -webkit-filter: blur($value);
+    }
+  }
+}
+/*webkit-sassui-blur End*/
