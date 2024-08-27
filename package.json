@@ -1,24 +1,18 @@
 {
-  "name": "webkit-sassui-blur",
-  "version": "0.0.1",
-  "description": "Blur for sass component",
-  "homepage": "https://github.com/afeiship/webkit-sassui-blur",
-  "author": {
-    "name": "afei",
-    "email": "1290657123@qq.com"
+  "name": "monorepo-lerna",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
   },
   "scripts": {
-    "build": "gulp",
-    "test": "gulp test"
-  },
-  "main": "dist/webkit-sassui-blur.scss",
-  "license": "MIT",
-  "devDependencies": {
-    "del": "^2.2.1",
-    "gulp": "^3.9.1",
-    "gulp-load-plugins": "^1.2.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
-    "yargs": "^4.7.1"
+    "start": "yarn --cwd packages/websites start",
+    "lerna:clean": "lerna clean",
+    "lerna:list": "lerna list",
+    "lerna:bootstrap": "lerna bootstrap",
+    "build": "lerna run build --since main --no-private",
+    "build:all": "lerna run build",
+    "publish": "npm run build && lerna publish --no-private"
   }
 }

@@ -1,0 +1,11 @@
+name: replace-in-files
+files:
+  - '.*'
+  - '*'
+  - '!node_modules'
+  - '!rif.config.yaml'
+replacements:
+  - from: /monorepo-lerna-description/g
+    to: Bala Krishna.
+  - from: /monorepo-lerna/g
+    to: ${PROJECT_NAME}
