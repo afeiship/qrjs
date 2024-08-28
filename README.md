@@ -15,7 +15,7 @@ npm install @jswork/qrjs
 ```js
 import qrcode, { ErrorCorrectLevel, QRCode } from '@jswork/qrjs';
 
-const qr = qrcode('afei', {
+const instance = qrcode('afei', {
   errorCorrectLevel: ErrorCorrectLevel.H,
   typeNumber: -1,
 });
@@ -30,12 +30,12 @@ import { createCanvas } from "canvas";
 import fs from "fs";
 
 // 生成二维码
-const qrcode = new QRCode(-1, ErrorCorrectLevel.H);
-qrcode.addData("afei");
-qrcode.make();
+const instance = new QRCode(-1, ErrorCorrectLevel.H);
+instance.addData("afei");
+instance.make();
 
 // 获取二维码模块的大小和数据
-const size = qrcode.getModuleCount();
+const size = qrdata.getModuleCount();
 const cellSize = 10; // 每个模块的大小，调整这个值可以改变二维码的尺寸
 const margin = 4 * cellSize; // 留白的大小
 
