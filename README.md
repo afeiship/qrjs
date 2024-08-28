@@ -13,14 +13,21 @@ npm install @jswork/qrjs
 
 ## usage
 ```js
-import qrjs from '@jswork/qrjs';
+import { CorrectLevel, QRCode } from '@jswork/qrjs';
 
-// usage goes here.
+const qrcode = new QRCode(-1, ErrorCorrectLevel.H);
+qrcode.addData("afei");
+qrcode.make();
 ```
 
-## types
-```ts
-/// <reference types="@jswork/qrjs/global.d.ts" />
+## with canvas
+```js
+import { CorrectLevel, QRCode } from '@jswork/qrjs';
+
+const canvas = document.getElementById('qrcode');
+const qrcode = new QRCode(canvas, -1, ErrorCorrectLevel.H);
+qrcode.addData("afei");
+qrcode.make();
 ```
 
 ## license
