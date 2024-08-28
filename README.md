@@ -13,21 +13,62 @@ npm install @jswork/qrjs
 
 ## usage
 ```js
-import { CorrectLevel, QRCode } from '@jswork/qrjs';
+import { Level, QRCode } from '@jswork/qrjs';
 
-const qrcode = new QRCode(-1, ErrorCorrectLevel.H);
+const qrcode = new QRCode(-1, Level.H);
 qrcode.addData("afei");
 qrcode.make();
 ```
 
 ## with canvas
-```js
-import { CorrectLevel, QRCode } from '@jswork/qrjs';
+> yarn add canvas
 
-const canvas = document.getElementById('qrcode');
-const qrcode = new QRCode(canvas, -1, CorrectLevel.H);
+```js
+import { Level, QRCode } from '@jswork/qrjs';
+import { createCanvas } from "canvas";
+import fs from "fs";
+
+// 生成二维码
+const qrcode = new QRCode(-1, Level.H);
 qrcode.addData("afei");
 qrcode.make();
+
+// 获取二维码模块的大小和数据
+const size = qrcode.getModuleCount();
+const cellSize = 10; // 每个模块的大小，调整这个值可以改变二维码的尺寸
+const margin = 4 * cellSize; // 留白的大小
+
+// 创建Canvas
+const canvas = createCanvas(
+  size * cellSize + margin * 2,
+  size * cellSize + margin * 2
+);
+const ctx = canvas.getContext("2d");
+
+// 绘制二维码背景
+ctx.fillStyle = "#ffffff";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+// 绘制二维码
+ctx.fillStyle = "#000000";
+for (let row = 0; row < size; row++) {
+  for (let col = 0; col < size; col++) {
+    if (qrcode.isDark(row, col)) {
+      ctx.fillRect(
+        margin + col * cellSize,
+        margin + row * cellSize,
+        cellSize,
+        cellSize
+      );
+    }
+  }
+}
+
+// 保存为PNG文件
+const out = fs.createWriteStream("qrcode.png");
+const stream = canvas.createPNGStream();
+stream.pipe(out);
+out.on("finish", () => console.log("QR code PNG file generated: qrcode.png"));
 ```
 
 ## license
