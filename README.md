@@ -25,7 +25,7 @@ qrcode.make();
 import { CorrectLevel, QRCode } from '@jswork/qrjs';
 
 const canvas = document.getElementById('qrcode');
-const qrcode = new QRCode(canvas, -1, ErrorCorrectLevel.H);
+const qrcode = new QRCode(canvas, -1, CorrectLevel.H);
 qrcode.addData("afei");
 qrcode.make();
 ```
