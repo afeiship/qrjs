@@ -13,9 +13,9 @@ npm install @jswork/qrjs
 
 ## usage
 ```js
-import { Level, QRCode } from '@jswork/qrjs';
+import { ErrorCorrectLevel, QRCode } from '@jswork/qrjs';
 
-const qrcode = new QRCode(-1, Level.H);
+const qrcode = new QRCode(-1, ErrorCorrectLevel.H);
 qrcode.addData("afei");
 qrcode.make();
 ```
@@ -24,12 +24,12 @@ qrcode.make();
 > yarn add canvas
 
 ```js
-import { Level, QRCode } from '@jswork/qrjs';
+import { ErrorCorrectLevel, QRCode } from '@jswork/qrjs';
 import { createCanvas } from "canvas";
 import fs from "fs";
 
 // 生成二维码
-const qrcode = new QRCode(-1, Level.H);
+const qrcode = new QRCode(-1, ErrorCorrectLevel.H);
 qrcode.addData("afei");
 qrcode.make();
 

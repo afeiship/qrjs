@@ -1,5 +1,6 @@
+import qrcode from 'qr.js';
 import QRCode from 'qr.js/lib/QRCode';
-import Level from 'qr.js/lib/ErrorCorrectLevel';
+import ErrorCorrectLevel from 'qr.js/lib/ErrorCorrectLevel';
 
-export default QRCode;
-export { QRCode, Level };
+export default qrcode;
+export { QRCode, ErrorCorrectLevel };
