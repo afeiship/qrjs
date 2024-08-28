@@ -1,6 +1,6 @@
 {
   "name": "@jswork/qrjs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A wrapper for qr.js.",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
