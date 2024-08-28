@@ -13,11 +13,12 @@ npm install @jswork/qrjs
 
 ## usage
 ```js
-import { ErrorCorrectLevel, QRCode } from '@jswork/qrjs';
+import qrcode, { ErrorCorrectLevel, QRCode } from '@jswork/qrjs';
 
-const qrcode = new QRCode(-1, ErrorCorrectLevel.H);
-qrcode.addData("afei");
-qrcode.make();
+const qr = qrcode('afei', {
+  errorCorrectLevel: ErrorCorrectLevel.H,
+  typeNumber: -1,
+});
 ```
 
 ## with canvas
